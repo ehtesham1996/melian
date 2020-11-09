@@ -4,6 +4,13 @@
   "main": "src/index.ts",
   "license": "MIT",
   "scripts": {
-    "lint": "eslint . --ext .js,.jsx,.ts,.tsx"
+    "lint": "eslint . --ext .js,.jsx,.ts,.tsx",
+    "storybook": "start-storybook -p 6006 --no-dll",
+    "build-storybook": "build-storybook --no-dll"
+  },
+  "devDependencies": {
+  },
+  "dependencies": {
+    "react-scripts": "4.0.0"
   }
 }
