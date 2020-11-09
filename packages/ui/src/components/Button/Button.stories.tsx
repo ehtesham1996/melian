@@ -1,16 +1,18 @@
 import React from "react";
-import Button from "./index";
+import Button, { ButtonProps } from "./index";
 import mdx from "./Button.docs.mdx";
+import { Story } from "@storybook/react";
 
-const config = {
+export default {
 	title: "Button",
 	parameters: {
 		docs: { page: mdx },
 	},
 };
 
-export default config;
+const Template: Story<ButtonProps> = (args) => <Button {...args} />;
 
-export const ButtonEmpty = () => <Button />;
-
-export const buttonWithContent = () => <Button>hello</Button>;
+export const ButtonEmpty = Template.bind({});
+ButtonEmpty.args = {
+	label: "Welcome",
+};

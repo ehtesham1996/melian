@@ -1,14 +1,32 @@
-import React, { PropsWithChildren, ReactElement } from "react";
+import React, { Fragment, PropsWithChildren, ReactElement } from "react";
+import { ReactComponent as Account } from "@melian/ui/src/assets/image/svg/account.svg";
 
-interface Props {
+export interface ButtonProps {
 	/**
 	 * Label for the component
 	 */
 	label?: string;
 }
 
-function Button({ children }: PropsWithChildren<Props>): ReactElement {
-	return <button>Button component {children}</button>;
+function Button({
+	label,
+	children,
+}: PropsWithChildren<ButtonProps>): ReactElement {
+	return (
+		<Fragment>
+			<div
+				style={{
+					height: 20,
+					width: 30,
+				}}
+			>
+				<Account />
+			</div>
+			<button>
+				{label} component {children}
+			</button>
+		</Fragment>
+	);
 }
 
 export default Button;

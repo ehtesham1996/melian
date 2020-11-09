@@ -47,6 +47,7 @@
 		"arrow-body-style": ["error", "as-needed"],
 		"prefer-template": "error",
 		"complexity": ["error", 4],
+		"import/no-anonymous-default-export": "off",
 		"no-console": "error"
 	},
 	"settings": {
