@@ -1,0 +1,9 @@
+{
+  "name": "@melian/ui",
+  "version": "0.0.1",
+  "main": "src/index.ts",
+  "license": "MIT",
+  "scripts": {
+    "lint": "eslint . --ext .js,.jsx,.ts,.tsx"
+  }
+}
