@@ -22,5 +22,8 @@
   },
   "devDependencies": {
     "react-app-rewired": "^2.1.6"
+  },
+  "dependencies": {
+    "react-hook-form": "^6.11.0"
   }
 }
