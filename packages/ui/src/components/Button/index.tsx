@@ -1,32 +1,12 @@
-import React, { Fragment, PropsWithChildren, ReactElement } from "react";
-import { ReactComponent as Account } from "@melian/ui/src/assets/image/svg/account.svg";
+import React, { PropsWithChildren, ReactElement } from "react";
+import { Button as ButtonA } from "antd";
+import { ButtonProps as ButtonPropsA } from "antd/lib/button/button";
 
-export interface ButtonProps {
-	/**
-	 * Label for the component
-	 */
-	label?: string;
-}
-
-function Button({
-	label,
-	children,
-}: PropsWithChildren<ButtonProps>): ReactElement {
-	return (
-		<Fragment>
-			<div
-				style={{
-					height: 20,
-					width: 30,
-				}}
-			>
-				<Account />
-			</div>
-			<button>
-				{label} component {children}
-			</button>
-		</Fragment>
-	);
+/**
+ * This is the Button component
+ */
+function Button(props: PropsWithChildren<ButtonPropsA>): ReactElement {
+	return <ButtonA {...props} />;
 }
 
 export default Button;
