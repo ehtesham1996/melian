@@ -3,20 +3,13 @@ import { useState } from "react";
 const useFileUpload = () => {
 	const [files, setFiles] = useState<any[]>();
 
-	const getFileMetadata = (file: any) =>
-		/**
-		 * The way we are handling uploads does not allow us to
-		 * turn the uploaded [object File] into JSON.
-		 *
-		 * Therefore, we have to write our own "toJSON()" method.
-		 */
-		({
-			lastModified: file.lastModified,
-			name: file.name,
-			size: file.size,
-			type: file.type,
-			webkitRelativePath: file.webkitRelativePath,
-		});
+	const getFileMetadata = (file: any) => ({
+		lastModified: file.lastModified,
+		name: file.name,
+		size: file.size,
+		type: file.type,
+		webkitRelativePath: file.webkitRelativePath,
+	});
 
 	const fileToBase64 = async (file: any) =>
 		new Promise((resolve, reject) => {
