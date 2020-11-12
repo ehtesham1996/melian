@@ -4,6 +4,7 @@
   "main": "src/index.ts",
   "license": "MIT",
   "scripts": {
+    "start": "yarn storybook",
     "lint": "eslint . --ext .js,.jsx,.ts,.tsx",
     "storybook": "start-storybook -p 6006 --no-dll",
     "build-storybook": "build-storybook --no-dll"

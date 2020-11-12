@@ -1,7 +1,7 @@
 {
 	"env": {
 		"browser": true,
-		"es6": true
+		"es2021": true
 	},
 
 	"root": true,
@@ -24,7 +24,7 @@
 			"files": ["*.ts", "*.tsx"],
 			"rules": {
 				"indent": ["error", "tab", { "SwitchCase": 1 }],
-				"@typescript-eslint/no-unused-vars": [2, { "args": "none" }]
+				"@typescript-eslint/no-unused-vars": ["warn", { "args": "none" }]
 			}
 		}
 	],
@@ -33,7 +33,7 @@
 		"ecmaFeatures": {
 			"jsx": true
 		},
-		"ecmaVersion": 2018,
+		"ecmaVersion": 12,
 		"sourceType": "module"
 	},
 	"plugins": ["react", "@typescript-eslint", "react-hooks"],
@@ -48,7 +48,8 @@
 		"prefer-template": "error",
 		"complexity": ["error", 4],
 		"import/no-anonymous-default-export": "off",
-		"no-console": "error"
+		"no-debugger": "warn",
+		"no-console": "warn"
 	},
 	"settings": {
 		"react": {
