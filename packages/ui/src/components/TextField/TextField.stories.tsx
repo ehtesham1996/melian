@@ -22,6 +22,4 @@ export default {
 const Template: Story<typeof TextField> = (args) => <TextField {...args} />;
 
 export const TextFieldEmpty = Template.bind({});
-TextFieldEmpty.args = {
-	size: "small",
-};
+TextFieldEmpty.args = {};
