@@ -1,10 +1,8 @@
 import React, { PropsWithChildren, ReactElement } from "react";
 import { BoxStyled } from "./style";
-import { LayoutProps, SpaceProps, BorderProps } from "styled-system";
+import { BoxProps } from "./types";
 
-interface Props extends LayoutProps, SpaceProps, BorderProps {}
-
-function Box(props: PropsWithChildren<Props>): ReactElement {
+function Box(props: PropsWithChildren<BoxProps>): ReactElement {
 	return <BoxStyled {...props} />;
 }
 
