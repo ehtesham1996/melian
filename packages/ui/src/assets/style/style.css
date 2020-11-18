@@ -1,0 +1,12 @@
+@import 'antd/dist/antd.css';
+
+:root {
+  --melian-input-background-color: #f4f6f9;
+  --melian-input-border-color: #b0b3b9;
+  --melian-color-purple: #5939E3;
+  --melian-color-indigo: #140A34;
+  --melian-color-gray-06: #B0B3B9;
+  --melian-color-gray-07: #F0F2F5;
+  --melian-color-gradient-03: linear-gradient(270deg, #ffda61 0%, #23d8c4 100%);
+
+}

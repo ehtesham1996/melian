@@ -1,13 +1,14 @@
-import React from "react";
+import React, { forwardRef } from "react";
 import { InputStyled } from "./style";
 import { TextFieldProps } from "./types";
 
 /**
  * TextField Component description
  */
-const TextField = (props: TextFieldProps) => (
-	<InputStyled size="large" {...props} />
-);
+const TextField = forwardRef((props: TextFieldProps, ref) => (
+	// <input {...props} ref={ref} />
+	<InputStyled size="large" {...props} ref={ref} />
+));
 
 TextField.displayName = "TextField";
 

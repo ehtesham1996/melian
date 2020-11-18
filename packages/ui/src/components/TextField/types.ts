@@ -5,6 +5,7 @@ export interface TextFieldProps
 		React.InputHTMLAttributes<HTMLInputElement>,
 		"size" | "prefix" | "type"
 	> {
+	itemRef?: InputProps["itemRef"];
 	addonAfter?: InputProps["addonAfter"];
 	addonBefore?: InputProps["addonBefore"];
 	allowClear?: InputProps["allowClear"];

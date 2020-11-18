@@ -1,5 +1,5 @@
 import { Typography } from "antd";
-import Box from "components/Box";
+import { Box } from "@melian/ui";
 import React, { PropsWithChildren, ReactElement, ReactNode } from "react";
 import { ScrollbarStyled, DocumentStyled } from "./style";
 

@@ -1,10 +1,6 @@
-import React, { PropsWithChildren, ReactElement } from "react";
-import { BoxStyled } from "./style";
-import { BoxProps } from "./types";
-
-function Box(props: PropsWithChildren<BoxProps>): ReactElement {
-	return <BoxStyled {...props} />;
-}
+import Box from "./Box";
+import BoxWithScroll from "./BoxWithScroll";
 
 export default Box;
 export { Box };
+export { BoxWithScroll };
