@@ -11,6 +11,11 @@
   "repository": "https://github.com/carlosgpn/melian.git",
   "author": "Marcony Neves<desenvolvedor@me.com>",
   "license": "MIT",
+  "engines": {
+    "npm": ">=6.14.8",
+    "node": ">=12.19.0",
+    "yarn": ">=1.22.10"
+  },
   "scripts": {
     "start": "yarn web start",
     "lint": "yarn workspaces run lint",
