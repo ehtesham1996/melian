@@ -1,3 +1,4 @@
+/* eslint-disable no-console */
 import React, { ReactElement, useEffect, useState } from "react";
 import { Col, Form, Row } from "antd";
 import { Box, BoxWithScroll, ButtonBack, ButtonSubmit } from "@melian/ui";
@@ -12,12 +13,15 @@ import { FormStyled } from "./style";
 import ModalTerms from "./Steps/Step1/ModalTerms";
 import Step3 from "./Steps/Step3";
 import Step4 from "./Steps/Step4";
+import user, { Interface } from "services/user";
+import { verifyPhone } from "./util";
+import { useHistory } from "react-router-dom";
 
 const bgi =
 	"https://s3-alpha-sig.figma.com/img/c2ca/1968/026915c1ba96a909d6f5a85613ffbe32?Expires=1606089600&Signature=RlIsUno6m8inVrLUvN0p60Fwh9DWGZ-ZSsEBalMXwUf0gRYGKfA5Ja5zRMhpjCdC4inf6QV13X0QierjBXZPkp8mGun8zfZdslYpPAhCnE5WYmQLZs4hSned5VMFnX1I~ScKErLMAWXLNf-6gkgqS-upk5INqF0T6GNZFgHg2LfTG8WgjCDerKmk9DyxXM1ZESagTQI7YU-XhNuVHYsUKgFuarV~VLQt9QjOsQgO~KHtJzr5H3xKXncGs72RtVOr2nFS0uwiXAPgR616nNlAC5UGXMHsJ7Uvxbf~001oXPctuNDvJkoo-ZobdndO-jFxt0U47bDyBIn2GxnrGEv9OQ__&Key-Pair-Id=APKAINTVSUGEWH5XD5UA";
 
 function Register(): ReactElement {
-	const [selected, setSelected] = useState(3);
+	const [selected, setSelected] = useState(0);
 	const [form] = Form.useForm();
 	const { set, state } = useStore("register");
 	const steps = [Step1, Step2, Step3, Step4];
@@ -33,16 +37,38 @@ function Register(): ReactElement {
 	const isLast = steps.length - 1 === selected;
 
 	const acceptModal = state.values?.accept;
+	const goNext = () => setSelected((i) => goNextUntilEnd(steps, i + 1));
+
+	const handleSaveRegister = (payload: Interface) => {
+		if (!acceptModal) {
+			setVisible(true);
+			return;
+		}
+
+		user.create(payload).then(() => goNext());
+	};
+
+	const { push } = useHistory();
 
 	const handleSubmit = (values: any) => {
+		if (selected === 0) {
+			handleSaveRegister({
+				...state.values,
+				...values,
+			});
+			return;
+		}
+		if (selected === 1) {
+			set("phoneError", false);
+
+			verifyPhone(values)
+				.then(() => goNext())
+				.catch(() => {
+					set("phoneError", true);
+				});
+		}
 		if (isLast) {
-			// eslint-disable-next-line no-console
-			console.log({ state, values });
-			// } else if (!acceptModal) {
-			// 	setVisible(true);
-		} else {
-			set("values", (actual: any) => ({ ...actual, ...values }));
-			setSelected((i) => goNextUntilEnd(steps, i + 1));
+			console.log({ ...state.values, values });
 		}
 	};
 
@@ -82,10 +108,14 @@ function Register(): ReactElement {
 							>
 								<ButtonBack
 									onClick={() => {
-										setSelected((i) => {
-											const s = i - 1;
-											return s <= 0 ? 0 : s;
-										});
+										if (selected === 0) {
+											push("/");
+										} else {
+											setSelected((i) => {
+												const s = i - 1;
+												return s <= 0 ? 0 : s;
+											});
+										}
 									}}
 								/>
 								<Logo

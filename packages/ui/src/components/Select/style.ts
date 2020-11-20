@@ -4,6 +4,9 @@ import { Select } from "antd";
 
 const SelectStyled = styled(Select)`
 	&&&& {
+		.ant-select-selection-search-input {
+			height: 100%;
+		}
 		.ant-select-selector {
 			width: 100%;
 			height: 100%;
@@ -25,7 +28,7 @@ const SelectStyled = styled(Select)`
 		&.ant-select-multiple {
 			.ant-select-selection-item {
 				border-radius: 4px;
-				background: rgba(89, 57, 227, 1);
+				background: var(--melian-color-purple);
 				color: white;
 			}
 			.ant-select-selection-item-remove {

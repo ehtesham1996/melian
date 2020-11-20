@@ -1,11 +1,12 @@
 import { Box, Typography } from "@melian/ui";
 import { TextFieldProps } from "@melian/ui/src/components/TextField/types";
 import { Form } from "antd";
+import { useStore } from "components/Store";
 import React, { ReactElement } from "react";
 import { BoxStyled, TextFieldStyled } from "./style";
 
 const fields = Array.from(Array(6).keys()).map((i) => ({
-	name: `number[${i}]`,
+	name: `number_${i}`,
 }));
 
 const TextFieldNext = ({ name, ...props }: Partial<TextFieldProps>) => (
@@ -20,6 +21,8 @@ const TextFieldNext = ({ name, ...props }: Partial<TextFieldProps>) => (
 );
 
 function Step2(): ReactElement {
+	const { state } = useStore("register");
+
 	return (
 		<Box
 			display="flex"
@@ -27,8 +30,6 @@ function Step2(): ReactElement {
 			flexDirection="column"
 			textAlign="center"
 			width="440px"
-			// alignSelf="center"
-			// justifySelf="center"
 			marginTop="172px"
 			marginLeft="152px"
 		>
@@ -47,6 +48,13 @@ function Step2(): ReactElement {
 					<TextFieldNext key={field.name} {...field} />
 				))}
 			</BoxStyled>
+			{state?.phoneError && (
+				<Box marginTop="10px">
+					<Typography $color="red">
+						There was an error validating phone
+					</Typography>
+				</Box>
+			)}
 			<Box marginTop="40px">
 				<Typography>Change Mobile Phone Number</Typography>
 			</Box>

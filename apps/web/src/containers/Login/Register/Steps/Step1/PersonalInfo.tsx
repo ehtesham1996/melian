@@ -1,9 +1,14 @@
-import React, { Fragment, ReactElement, useEffect, useRef } from "react";
+import React, {
+	Fragment,
+	ReactElement,
+	useEffect,
+	useRef,
+	useState,
+} from "react";
 import {
 	Box,
 	Button,
 	DatePicker,
-	Option,
 	Select,
 	Typography,
 	TypographyTitle,
@@ -13,18 +18,36 @@ import useFileUpload from "hooks/useFileUpload";
 import { useStore } from "components/Store";
 import uploadImg from "assets/svg/upload.svg";
 import { FieldWithItem } from "components/Field";
+const mb = 1024 * 1024;
+
+const toSize = (size: number) => (size / mb).toFixed(2).replace(".", ",");
+
+const genders = ["Male", "Female", "Undefined"].map((i) => ({
+	value: i,
+	label: i,
+}));
 
 function PersonalInfo(): ReactElement {
 	const { handleUpload, files } = useFileUpload();
 	const inputUpload = useRef<HTMLInputElement>(null);
 	const { set, state } = useStore("register");
+	const [fileError, setFileError] = useState(false);
 
 	useEffect(() => {
 		if (files?.length) {
-			set("values.profile_photo", files[0].image64);
+			if (files[0].metadata.size > mb * 3) {
+				setFileError(true);
+			} else {
+				set("values.profile_photo", files[0].image64);
+			}
 		}
 		// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, [files]);
+
+	const openFileUpload = () => {
+		setFileError(false);
+		inputUpload.current?.click();
+	};
 
 	return (
 		<Fragment>
@@ -49,7 +72,7 @@ function PersonalInfo(): ReactElement {
 							src={state?.values?.profile_photo ?? uploadImg}
 							width={122}
 							height={122}
-							onClick={() => inputUpload.current?.click()}
+							onClick={openFileUpload}
 						/>
 					</Box>
 					<Box
@@ -65,12 +88,16 @@ function PersonalInfo(): ReactElement {
 							</Typography>
 						</Box>
 						<Box marginTop="20px">
-							<Button
-								onClick={() => inputUpload.current?.click()}
-							>
-								Upload
-							</Button>
+							<Button onClick={openFileUpload}>Upload</Button>
 						</Box>
+						{fileError && files && (
+							<Box marginTop={2}>
+								<Typography $color="red">
+									Error: Max file size exceeded (
+									{toSize(files[0].metadata.size)}mb)
+								</Typography>
+							</Box>
+						)}
 					</Box>
 				</Box>
 			</Box>
@@ -98,9 +125,7 @@ function PersonalInfo(): ReactElement {
 							name="gender"
 							specialRules={["required"]}
 						>
-							<Select>
-								<Option value="demo">Demo</Option>
-							</Select>
+							<Select options={genders} />
 						</FieldWithItem>
 					</Col>
 					<Col span={7}>

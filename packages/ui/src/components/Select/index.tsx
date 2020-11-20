@@ -1,20 +1,28 @@
-import React, { CSSProperties } from "react";
-// import { SelectProps as SelectPropsA } from "antd/lib/select/index";
+import React, { Fragment } from "react";
 import { SelectStyled } from "./style";
 import { Select as SelectA } from "antd";
+import { LabeledValue } from "antd/lib/select";
+import { SelectProps } from "./types";
 const { Option } = SelectA;
 
-interface SelectProps {
-	children: any;
-	mode?: "multiple" | "tags";
-	labelInValue?: boolean;
-	placeholder?: string;
-	style?: CSSProperties;
-}
+const buildOptions = (list: LabeledValue[]) => (
+	<Fragment>
+		{list.map(({ label, value }) => (
+			<Option key={value} value={value}>
+				{label}
+			</Option>
+		))}
+	</Fragment>
+);
+
 /**
  * TextField Component description
  */
-const Select = (props: SelectProps) => <SelectStyled size="large" {...props} />;
+const Select = ({ options, ...props }: SelectProps) => (
+	<SelectStyled size="large" {...props}>
+		{props.children || (options && buildOptions(options))}
+	</SelectStyled>
+);
 
 Select.displayName = "Select";
 // @ts-ignore
