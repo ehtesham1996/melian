@@ -1,7 +1,14 @@
 import React, { PropsWithChildren, ReactElement } from "react";
-import { Layout as LayoutA, Menu } from "antd";
-import { relative } from "path";
-const { Header, Content, Footer, Sider } = LayoutA;
+import {
+	Layout as LayoutA,
+	// Menu
+} from "antd";
+const {
+	Header,
+	Content,
+	Footer,
+	// Sider
+} = LayoutA;
 
 interface Props {}
 
