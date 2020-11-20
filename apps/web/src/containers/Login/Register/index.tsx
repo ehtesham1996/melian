@@ -66,9 +66,14 @@ function Register(): ReactElement {
 				.catch(() => {
 					set("phoneError", true);
 				});
+			return;
 		}
+
 		if (isLast) {
 			console.log({ ...state.values, values });
+		} else {
+			set("values", (actual: any) => ({ ...actual, ...values }));
+			goNext();
 		}
 	};
 
