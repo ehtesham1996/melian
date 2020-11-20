@@ -1,3 +1,4 @@
+export * from "./AddressBlock";
 export * from "./Box";
 export * from "./Button";
 export * from "./DatePicker";

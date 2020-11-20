@@ -5,6 +5,7 @@ import { Select } from "antd";
 const SelectStyled = styled(Select)`
 	&&&& {
 		.ant-select-selector {
+			width: 100%;
 			height: 100%;
 			position: absolute;
 
@@ -15,12 +16,22 @@ const SelectStyled = styled(Select)`
 		${({ size }) =>
 			size === "large" &&
 			css`
-				.ant-select-selection-item {
+				&:not(.ant-select-multiple) .ant-select-selection-item {
 					line-height: 58px;
 				}
 				display: block;
 				min-height: 58px;
 			`}
+		&.ant-select-multiple {
+			.ant-select-selection-item {
+				border-radius: 4px;
+				background: rgba(89, 57, 227, 1);
+				color: white;
+			}
+			.ant-select-selection-item-remove {
+				color: white;
+			}
+		}
 	}
 	border-radius: 4px;
 `;

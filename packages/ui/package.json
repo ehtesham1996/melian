@@ -9,9 +9,9 @@
     "storybook": "start-storybook -p 6006 --no-dll",
     "build-storybook": "build-storybook --no-dll"
   },
-  "devDependencies": {
-  },
+  "devDependencies": {},
   "dependencies": {
-    "react-scripts": "4.0.0"
+    "react-scripts": "4.0.0",
+    "simplebar-react": "^2.3.0"
   }
 }

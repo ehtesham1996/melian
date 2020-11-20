@@ -1,12 +1,24 @@
 @import 'antd/dist/antd.css';
 
+/* @font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial,
+  'Noto Sans', sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol',
+  'Noto Color Emoji'; */
+body {
+  font-family: 'Asap', sans-serif;
+  font-style: normal;
+  font-weight: normal;
+}
+
 :root {
   --melian-input-background-color: #f4f6f9;
   --melian-input-border-color: #b0b3b9;
   --melian-color-purple: #5939E3;
   --melian-color-indigo: #140A34;
+  --melian-color-light-green: #23D8C4;
+  --melian-color-gray-02: #474950;
   --melian-color-gray-06: #B0B3B9;
   --melian-color-gray-07: #F0F2F5;
+  --melian-color-gradient-02: linear-gradient(270deg, #EE4B63 0%, #5939E3 100%);
   --melian-color-gradient-03: linear-gradient(270deg, #ffda61 0%, #23d8c4 100%);
-
 }
+
