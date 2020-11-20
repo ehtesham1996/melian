@@ -1,16 +1,17 @@
-// import { TypographyProps as TypographyPropsA } from "antd/lib/typography";
-// import ExportTypography from "antd/lib/typography/Typography"
-import { TitleProps } from "antd/lib/typography/Title";
 import React, { ReactElement } from "react";
-import { TitleStyled } from "./style";
+import { TitleProps } from "./types";
+import Typography from "./Typography";
 
-interface TypographyProps {
-	children: TitleProps["children"];
-	level?: TitleProps["level"];
-}
-
-function Title(props: TypographyProps): ReactElement {
-	return <TitleStyled {...props} />;
+function Title({ level, ...props }: TitleProps): ReactElement {
+	return (
+		<Typography
+			as={level && `h${level}`}
+			$gradient
+			$color="--melian-color-gradient-03"
+			$variant="subtitle"
+			{...props}
+		/>
+	);
 }
 
 export default Title;
