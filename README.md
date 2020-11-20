@@ -19,3 +19,7 @@ The project is bootstrapped as a mono-repository, containing ui-kit and applicat
 1. Run `yarn install`, from root, to install all project dependencies.
 2. Run `yarn ui storybook`, to run `storybook`.
 3. Finally you can run `yarn web start` or `yarn start`, to run main web project.
+
+Push heroku
+
+git push heroku {branch_name}:master
