@@ -21,9 +21,11 @@
     ]
   },
   "devDependencies": {
+    "@types/axios": "^0.14.0",
     "react-app-rewired": "^2.1.6"
   },
   "dependencies": {
+    "axios": "^0.21.0",
     "react-hook-form": "^6.11.0"
   }
 }
