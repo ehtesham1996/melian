@@ -1,5 +1,5 @@
 export interface StepProps {
-	onSubmit: (data: any) => void;
+	onSubmit: () => void;
 	onPrev: () => void;
 	state: any;
 }
