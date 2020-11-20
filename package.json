@@ -17,8 +17,7 @@
     "yarn": ">=1.22.10"
   },
   "scripts": {
-    "start": "yarn server start",
-    "start:app": "yarn web start",
+    "start": "yarn web start",
     "lint": "yarn workspaces run lint",
     "test": "yarn workspaces run test",
     "server": "yarn workspace @melian/server",
