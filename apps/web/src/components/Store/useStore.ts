@@ -43,6 +43,7 @@ const useStore = (selector?: string): any => {
 							: _merge(get(selector2), value)
 				  )
 				: context.update,
+		// eslint-disable-next-line react-hooks/exhaustive-deps
 		[context, selector]
 	);
 

@@ -1,9 +1,5 @@
 import React, { Fragment } from "react";
-import {
-	render,
-	fireEvent,
-	act,
-} from "@testing-library/react";
+import { render, fireEvent, act } from "@testing-library/react";
 import { Provider as Store, useStore } from "../index";
 
 describe("<Store /> testing suite", () => {

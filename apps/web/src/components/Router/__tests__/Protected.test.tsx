@@ -1,7 +1,7 @@
 import React from "react";
-import { render } from "@testing-library/react";
-import Protected from "../Protected";
-import { useStore } from "../../Store";
+// import { render } from "@testing-library/react";
+// import Protected from "../Protected";
+// import { useStore } from "../../Store";
 
 jest.mock("react-router-dom", () => ({
 	useLocation: () => ({

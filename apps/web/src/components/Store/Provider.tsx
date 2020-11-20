@@ -46,6 +46,7 @@ const Provider: FC<Props> = ({
 		set(key, (actual: any) =>
 			_merge(actual, value instanceof Function ? value(get(key)) : value)
 		);
+		// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, []);
 
 	const get = useCallback((key: string) => _get(bigState, key), [bigState]);
