@@ -10,6 +10,7 @@ import { Provider as ContextProvider } from "./context";
 import reducer, * as actions from "./reducer";
 import _get from "lodash/get";
 import _set from "lodash/set";
+import _merge from "lodash/merge";
 import useStore from "./useStore";
 
 interface Props {
@@ -40,6 +41,13 @@ const Provider: FC<Props> = ({
 		(key: string, value: any) => dispatch(actions.setState(key, value)),
 		[]
 	);
+
+	const update = useCallback((key: string, value: any) => {
+		set(key, (actual: any) =>
+			_merge(actual, value instanceof Function ? value(get(key)) : value)
+		);
+	}, []);
+
 	const get = useCallback((key: string) => _get(bigState, key), [bigState]);
 
 	const clear = useCallback(() => dispatch(actions.clearState()), []);
@@ -66,6 +74,7 @@ const Provider: FC<Props> = ({
 				set,
 				get,
 				clear,
+				update,
 			}}
 		>
 			{children}

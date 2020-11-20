@@ -1,0 +1,4 @@
+[build]
+  publish = "./build"  
+[context.production]
+  publish = "./build"

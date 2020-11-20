@@ -1,6 +1,6 @@
 import React from "react";
 import { Provider as StoreProvider, useStore } from "..";
-import { render } from "@cvortex/houston/src/common/tests/testing-library/react";
+import { render } from "@testing-library/react";
 
 describe("useStore testing suite", () => {
 	test("should access useStore property", () => {

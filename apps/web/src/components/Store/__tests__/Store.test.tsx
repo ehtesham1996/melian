@@ -3,7 +3,7 @@ import {
 	render,
 	fireEvent,
 	act,
-} from "@cvortex/houston/src/common/tests/testing-library/react";
+} from "@testing-library/react";
 import { Provider as Store, useStore } from "../index";
 
 describe("<Store /> testing suite", () => {

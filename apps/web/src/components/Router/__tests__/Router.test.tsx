@@ -1,5 +1,5 @@
 import React from "react";
-import { render } from "@cvortex/houston/src/common/tests/testing-library/react";
+import { render } from "@testing-library/react";
 import Router from "..";
 import { BrowserRouter } from "react-router-dom";
 

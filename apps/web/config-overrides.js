@@ -4,9 +4,9 @@ const path = require("path");
 const appDirectory = fs.realpathSync(process.cwd());
 const resolveApp = (relativePath) => path.resolve(appDirectory, relativePath);
 
-const appIncludes = [resolveApp("src"), resolveApp("../../packages/ui")];
+const appIncludes = [resolveApp("src"), resolveApp("../../packages/ui/src")];
 
-const resolveModules = [resolveApp("../../packages/ui")];
+const resolveModules = [resolveApp("../../packages/ui/src")];
 
 module.exports = {
 	// eslint-disable-next-line no-unused-vars

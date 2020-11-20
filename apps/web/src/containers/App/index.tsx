@@ -1,6 +1,6 @@
 import React, { ReactElement, Suspense } from "react";
 import Loading from "components/Loading";
-import "antd/dist/antd.css";
+import "@melian/ui/src/assets/style/style.css";
 import routes from "routes";
 import Router from "components/Router";
 import { BrowserRouter, Switch } from "react-router-dom";
